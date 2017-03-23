@@ -1,0 +1,33 @@
+<extend name='Index:index' />
+<block name="right">
+	<div>
+		<h2 class="page-header">查看商品分类</h2>
+		<table class="table table-striped table-bordered table-hover">
+				<tr>
+					<th>选择</th>
+					<th>商品分类ID</th>
+					<th>分类名</th>
+					<th>删除</th>
+					<th>修改</th>
+				</tr>
+				<volist name='rows' id='row'>
+					<tr>
+						<td><input type="checkbox" name="del[]" value="<{$row['id']}>"></td>
+						<td><{$row['id']}></td>
+						<td><{$row['name']}></td>
+						<!-- <td><a href="__URL__/delete/id/<{$row['id']}>">删除</a></td> -->
+						<!-- <td><a href="{:U('delete')}/id/<{$row['id']}>">删除</a></td> -->
+						<!-- 利用ajax实现无刷新删除 -->
+						<td style="width:70px;text-algin:center"><a id="del" idx="<{$row['id']}>" class="btn btn-danger del" href="javascript:">删除</a></td>
+						<td style="width:70px;text-algin:center"><a class="btn btn-primary del" href="__URL__/edit/id/<{$row['id']}>">修改</a></td>
+					</tr>
+				</volist>
+			</table>
+		</form>
+		<button class="btn btn-primary all">全选</button>
+		<button class="btn btn-primary delAll">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	</div>
+</block>
+
